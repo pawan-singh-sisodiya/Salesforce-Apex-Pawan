@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Student Details">
+        <lightning-combobox label="City" options={studentCity} onchange={handleCity}>
+        </lightning-combobox>
+
+        <!-- <div if:true={showStudentList}> -->
+        <c-student-list students={studentRecordsTemp}></c-student-list>
+        <!-- </div> -->
+    </lightning-card>
+
+</template>

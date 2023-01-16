@@ -1,0 +1,23 @@
+<template>
+
+    <lightning-card>
+        <template for:each={getCountry} for:item="con">
+            <div key={con.Id}>
+
+                <lightning-layout>
+                    <lightning-layout-item size="3">
+                        <lightning-formatted-rich-text value={con.CountrySideImage__c}></lightning-formatted-rich-text>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4">
+                        <h4>Country: <b>{con.Name}</b></h4><br>
+                        <h4>President: <b>{con.President__c}</b></h4><br>
+                        <h4>Population: <b>{con.Population__c}</b></h4><br>
+                        <h4>Capital: <b>{con.Capital__c}</b></h4><br>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+
+    </lightning-card>
+
+</template>

@@ -1,0 +1,8 @@
+<template>
+   
+    <lightning-card>
+        <lightning-datatable key-field="Id" data={myObj} columns={columns} onrowselection={helperMethod}></lightning-datatable>
+    </lightning-card>
+    
+    <c-ravindra-child pawan={selectedRowsData}></c-ravindra-child>
+</template>

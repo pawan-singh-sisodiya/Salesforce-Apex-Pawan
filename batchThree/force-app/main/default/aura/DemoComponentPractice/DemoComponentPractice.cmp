@@ -1,0 +1,5 @@
+<aura:component >
+    <p>Hello World !!</p>
+    <p>Writting my first aura component</p>
+	
+</aura:component>

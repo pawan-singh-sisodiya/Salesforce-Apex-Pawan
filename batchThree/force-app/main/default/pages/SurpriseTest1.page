@@ -1,0 +1,13 @@
+<apex:page controller="SurpriseTest1Controller">
+    
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!accountRecords}" var="acc">
+            
+          <apex:column headerValue="Serial Number" value="{!acc.sNo}"/>
+            <apex:column headerValue="Account Name" value="{!acc.accountName}"/>
+            <apex:column headerValue="Count" value="{!acc.countContact}"/>
+        </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

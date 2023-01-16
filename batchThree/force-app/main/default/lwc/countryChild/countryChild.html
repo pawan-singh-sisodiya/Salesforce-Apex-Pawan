@@ -1,0 +1,38 @@
+<template>
+    <lightning-card>
+
+        <div if:true={childRecords}>
+            <!--{childRecords.CountrySideImage__c}-->
+            <lightning-layout>
+
+                <lightning-layout-item size="7">
+                    <lightning-formatted-rich-text value={childRecords.CountrySideImage__c}>
+                    </lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="5" class="slds-p-around_large">
+                    <h3><b>Country : </b> {childRecords.Name}</h3>
+                    <h3><b>Population : </b> {childRecords.Population__c}</h3>
+                    <h3><b>President : </b> {childRecords.President__c}</h3>
+                    <h3><b>Capital : </b> {childRecords.Capital__c}</h3>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <!-- <template for:each={childRecords} for:item="child">
+            <div key={child.id}>
+                <lightning-layout>
+                    <lightning-layout-item>
+                        <img src={child.CountrySideImage__c}>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <h3><b>Country : </b> {child.Name}</h3>
+                        <h3><b>Population__c : </b> {child.Population__c}</h3>
+                        <h3><b>President__c : </b> {child.President__c}</h3>
+                        <h3><b>Capital__c : </b> {child.Capital__c}</h3>
+
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template> -->
+    </lightning-card>
+
+</template>

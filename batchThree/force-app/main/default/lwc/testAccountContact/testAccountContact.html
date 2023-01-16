@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Account Contact Task Test">
+        <lightning-combobox label="Account Names" options={accountPicklist} onchange={accountHandler}>
+        </lightning-combobox>
+
+        <lightning-combobox label="Contact Names" options={contactPick} onchange={contactHandler}></lightning-combobox>
+
+       <table>
+        <thead>
+            <tr>
+                <th>status</th>
+                <th>Subject</th>
+            </tr>
+            
+            <template for:each={taskRecords} for:item="ts">
+                <tr key={ts.Id}>
+
+                    
+                        <td>{ts.Status}</td>
+                        <td>{ts.Subject}</td>
+                    
+                </tr>
+
+            </template>
+        </thead>
+       </table>
+    </lightning-card>
+</template>

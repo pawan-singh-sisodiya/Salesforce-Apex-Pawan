@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Filter By City">
+        <lightning-combobox label="Select City" options={contactPicklist} onchange={handleCity}></lightning-combobox>
+        
+        <lightning-datatable
+                key-field="id"
+                data={contactRecords}
+                columns={columns}>
+        </lightning-datatable>
+    </lightning-card>
+    
+</template>

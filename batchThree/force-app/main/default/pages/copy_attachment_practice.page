@@ -1,0 +1,32 @@
+<apex:page controller="CopyAttachmentDemo">
+    <apex:form >
+        <apex:actionFunction action="{!fillAttachment}" name="fillAttachment"/>
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <h1>
+                        Attachment Object List
+                    </h1>
+                </apex:pageBlockSectionItem>  
+                <apex:pageBlockSectionItem >
+                    <apex:selectList size="1" value="{!selectObjectName}" onchange="fillAttachment()">
+                     <apex:selectOptions value="{!Options}" ></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>  
+            </apex:pageBlockSection>        
+        </apex:pageBlock>
+  <!----------------------------------Data Table---------------------------------------->
+        <apex:pageBlock rendered="{!showObjectTable}">
+            
+               <apex:pageBlockTable value="{!objectwrapperList}" var="attach">
+                   <apex:column headerValue="Serial No" value="{!attach.sNo}"/>
+                   <apex:column headerValue="Name" value="{!attach.name}"/>
+                   <apex:column headerValue="Content Type" value="{!attach.contentType}"/>
+                   <apex:column headerValue="Image" >
+                       <img src="{!attach.attachmentUrl}" width="40" height="40"/>
+                   </apex:column>
+                </apex:pageBlockTable>
+           
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

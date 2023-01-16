@@ -1,0 +1,19 @@
+<apex:component access="global" controller="RahulVFController">
+    
+    <p>
+        Hi Rahul,
+        I am doing well.
+    </p>
+    <apex:dataTable value="{!taskRecords}" var="ts">
+       <apex:facet name="header">Account List</apex:facet>
+        <apex:column headerValue="WhoId" value="{!ts.WhoId}"></apex:column>
+        <apex:column headerValue="WhatId" value="{!ts.WhatId}"></apex:column>
+        <apex:column headerValue="Subject" value="{!ts.Subject}"></apex:column>
+        <apex:column headerValue="Status " value="{!ts.Status }"></apex:column>
+    </apex:dataTable>
+    
+     <p>
+        Thanks and Regards<br/>
+        Rahul Vaishnav
+    </p>
+</apex:component>

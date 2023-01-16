@@ -1,0 +1,3 @@
+<aura:component >
+	<c:LCDemo1 var1="value form Demo 2"></c:LCDemo1>
+</aura:component>

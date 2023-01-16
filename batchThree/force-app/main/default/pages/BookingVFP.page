@@ -1,0 +1,51 @@
+<apex:page standardController="Contact" recordSetVar="Contacts" >
+<apex:form >
+        <apex:pageBlock title="PageBlock Table">
+            <apex:pageBlockTable value="{!Contacts}" var="con" rows="3">
+                <apex:column value="{!con.name}"/>
+                <apex:column value="{!con.email}"/>
+                <apex:column headerValue="Contact" value="{!con.phone}"/>
+            </apex:pageBlockTable>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!first}" value="first"/>
+                <apex:commandButton action="{!previous}" value="previous"/>
+                <apex:commandButton action="{!last}" value="last"/>
+                <apex:commandButton action="{!next}" value="next"/>
+            </apex:pageBlockButtons>
+               
+        </apex:pageBlock>
+         </apex:form>
+        <apex:pageBlock title="Data Table">
+            <apex:dataTable value="{!Contacts}" var="con">
+                <apex:column headerValue="Name" value="{!con.name}"/>
+                <apex:column headerValue="Email" value="{!con.email}" />
+                <apex:column headerValue="Contact" value="{!con.phone}"/>
+            </apex:dataTable>
+        </apex:pageBlock>
+   
+    
+    <apex:pageBlock title="Data List">
+        <apex:dataList value="{!Contacts}" var="con" type="circle">
+            <apex:outputField value="{!con.name}"/>
+            <apex:outputField value="{!con.email}" />
+            <apex:outputField value="{!con.phone}"/>
+        </apex:dataList>
+    </apex:pageBlock>
+    
+    <apex:pageBlock >
+        <table width="100" border="2px">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <apex:repeat value="{!Contacts}" var="contactRecord">
+                <tr>
+                    <td>{!contactRecord.name}</td>
+                    <td>{!contactRecord.email}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:pageBlock>
+    
+</apex:page>

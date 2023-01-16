@@ -1,0 +1,11 @@
+<template>
+
+    <lightning-card>
+        <lightning-combobox label="Opportunity stage Name" options={getAccountDataByTypeData.data}
+        onchange={handler}>
+    </lightning-combobox>
+
+    <lightning-datatable key-field="Id" data={oppRecords} columns={columns}></lightning-datatable>
+    </lightning-card>
+    
+</template>

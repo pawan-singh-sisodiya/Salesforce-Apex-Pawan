@@ -1,0 +1,19 @@
+<apex:page controller="SanjayGuptaController">
+    
+    <apex:form >
+        <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!accountRecords}" var="acc">
+                <apex:column value="{!acc.accId}"/>
+                <apex:column value="{!acc.accName}"/>
+                <apex:column value="{!acc.Phone}"/>
+                <apex:column value="{!acc.oppId}"/>
+                <apex:column value="{!acc.oppName}"/>
+                <apex:column value="{!acc.closeDate}"/>
+                <apex:column value="{!acc.stage}"/>
+                
+                
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+        
+    </apex:form>
+</apex:page>

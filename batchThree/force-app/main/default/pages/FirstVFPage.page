@@ -1,0 +1,21 @@
+<apex:page standardController="Booking__c" >
+    <apex:form >
+        <apex:sectionHeader title="New Booking" subtitle="Booking Edit"/>
+        <apex:pageBlock title="Booking">
+            <apex:pageBlockSection title="Information" collapsible="false">
+                <apex:inputField value="{!Booking__c.Room2__c}"/>
+                <apex:inputField value="{!Booking__c.Customer2__c}"/>
+                <apex:inputField value="{!Booking__c.Check_In_Time__c}"/>
+                <apex:inputField value="{!Booking__c.Check_Out_Time__c}"/>
+                
+                <apex:inputField value="{!Booking__c.Status__c}"/>
+                <apex:inputField value="{!Booking__c.Customer_Email__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom" >
+            	 <apex:commandButton action="{!save}" value="save"/>
+                <apex:commandButton action="{!quicksave}" value="quicksave"/>
+                <apex:commandButton action="{!cancel}" value="cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,23 @@
+<template>
+    <lightning-card>
+        {selectValue}
+        <lightning-combobox label="Account Name" options={accountPickList} onchange={accountHandler}>
+        </lightning-combobox>
+
+        <div if:true={selectedAccount}>
+            <lightning-combobox label="Contact Name" options={contactPickList} onchange={contactHandler}>
+            </lightning-combobox>
+        </div>
+
+        <div if:true={taskData}>
+            <template for:each={taskData} for:item="tsk">
+                <div key={tsk.Id}>
+                    <p> subject : {tsk.Subject}</p>
+                    <p> subject : {tsk.ActivityDate}</p>
+                    <p> subject : {tsk.Status}</p>
+                    <p> subject : {tsk.CreatedById}</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

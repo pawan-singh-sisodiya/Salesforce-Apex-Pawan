@@ -1,0 +1,38 @@
+<apex:page standardController="Account" recordSetVar="Accounts">
+    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!Accounts}" var="acc">
+                <apex:column value="{!acc.Name}"/>
+                <apex:column value="{!acc.Phone}"/>
+                <apex:column value="{!acc.fax}"/>
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:dataTable value="{!Accounts}" var="acc">
+                <apex:column headerValue="Account Name" value="{!acc.Name}"/>
+                <apex:column headerValue="Phone" value="{!acc.Phone}"/>
+                <apex:column headerValue="Fax" value="{!acc.fax}"/>
+            </apex:dataTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Table using Html">
+            <table>
+                <tr>
+                <th>Account Name</th>
+                    <th>Phone</th>
+                </tr>
+                <apex:repeat value="{!Accounts}" var="acc">
+                <tr>
+                    <td>{!acc.Name}</td>
+                    <td>{!acc.Phone}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,19 @@
+<apex:page standardController="Student__c">
+    <apex:form >
+        <apex:sectionHeader title="View Detail" subtitle="Student" />    
+        <apex:pageBlock title="Student View PageBlock">
+            
+            <apex:pageBlockSection > 
+                <apex:outputField value="{!Student__c.Student_Name__c}"/>
+                <apex:outputField value="{!Student__c.Email__c}"/>
+                <apex:outputField value="{!Student__c.Gender__c}"/>
+                <apex:outputField value="{!Student__c.Phone_Number__c}"/>
+                <apex:outputField value="{!Student__c.DOB__c}"/>  
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!cancel}" value="cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

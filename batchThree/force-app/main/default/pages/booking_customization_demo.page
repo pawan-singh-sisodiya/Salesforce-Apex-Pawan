@@ -1,0 +1,47 @@
+<apex:page controller="BookingCustomizationDemo">
+    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Hotel Sugan Place">
+                <apex:inputField value="{!book.Customer2__c}"/>
+                <apex:inputField value="{!book.Room2__c}"/>
+                <apex:inputField value="{!book.Status__c}"/>
+                <apex:inputField value="{!book.Customer_Email__c}"/>
+                <apex:inputField value="{!book.Check_In_Time__c}"/>
+                <apex:inputField value="{!book.Check_Out_Time__c}"/>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="save" action="{!save}" />
+            </apex:pageBlockButtons>
+            
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Hotel Ashoka">
+               
+                <apex:inputField value="{!book2.Customer2__c}"/>
+                <apex:inputField value="{!book2.Room2__c}"/>
+                <apex:inputField value="{!book2.Status__c}"/>
+                <apex:inputField value="{!book2.Customer_Email__c}"/>
+                <apex:inputField value="{!book2.Check_In_Time__c}"/>
+                <apex:inputField value="{!book2.Check_Out_Time__c}"/>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Hotel Sanam">
+                
+                <apex:inputField value="{!book3.Customer2__c}"/>
+                <apex:inputField value="{!book3.Room2__c}"/>
+                <apex:inputField value="{!book3.Status__c}"/>
+                <apex:inputField value="{!book3.Customer_Email__c}"/>
+                <apex:inputField value="{!book3.Check_In_Time__c}"/>
+                <apex:inputField value="{!book3.Check_Out_Time__c}"/>
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

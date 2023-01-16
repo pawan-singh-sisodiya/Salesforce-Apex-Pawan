@@ -1,0 +1,9 @@
+<apex:page controller="WrapperController">
+    <apex:pageBlock >
+    	<apex:pageBlockTable value="{!contactRecords}" var="contactRecord">
+            <apex:column headerValue="Sno." value="{!contactRecord.sNo}"/>
+            <apex:column headerValue="First Name" value="{!contactRecord.FirstName}"/>
+            <apex:column headerValue="Last Name" value="{!contactRecord.LastName}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

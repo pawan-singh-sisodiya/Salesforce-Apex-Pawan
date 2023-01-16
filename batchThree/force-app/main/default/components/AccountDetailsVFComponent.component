@@ -1,0 +1,18 @@
+<apex:component access="global" controller="AccountDetailComponentController">
+    <p style="background-color:Blue">
+        Hello Sir<br/>
+        Please find the below account details.
+    </p>
+    <apex:dataTable value="{!listOfAccountRecords}" var="accRec" width="100%" style="background-color:yellow">
+        <apex:facet name="header">Account List</apex:facet>
+        <apex:column headerValue="Account Name" value="{!accRec.Name}"></apex:column>
+        <apex:column headerValue="Type" value="{!accRec.Type}"></apex:column>
+        <apex:column headerValue="Phone" value="{!accRec.Phone}"></apex:column>
+        <apex:column headerValue="Account Number" value="{!accRec.AccountNumber}"></apex:column>
+        <!--apex:column headerValue="Account AnnualRevenue" value="{!accRec.AnnualRevenue}"></apex:column-->
+    </apex:dataTable>
+    <p style="background-color:red">
+        Regards,<br/>
+        Account Team.
+    </p>
+</apex:component>

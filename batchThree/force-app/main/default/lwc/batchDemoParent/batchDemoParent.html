@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+        <lightning-combobox label="Account Name" options={accountRecords} onchange={accountHandler}>
+        </lightning-combobox>
+
+        <div if:true={childServe}>
+            <c-batch-demo-child contact-complete-data={accountData} contact-data={childServe}></c-batch-demo-child>
+        </div>
+
+    </lightning-card>
+</template>

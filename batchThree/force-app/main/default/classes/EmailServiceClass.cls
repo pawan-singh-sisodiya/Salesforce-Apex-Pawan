@@ -15,7 +15,7 @@ global class EmailServiceClass implements Messaging.InboundEmailHandler {
             if(btt.filename.endsWith('.csv')){
                 String objectName = btt.filename.substringBeforeLast('.');
                 csvbody = btt.body.toString();  
-                system.debug('csvbody****'+ csvbody);                  
+                system.debug('csvbody****'+ csvbody);               
                 //Now sepatate every row of the Csv                    
                 csvFileLines = csvbody.split('\n');
                 system.debug('csvFileLines****'+ csvFileLines);

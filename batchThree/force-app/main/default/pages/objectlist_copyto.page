@@ -1,0 +1,132 @@
+<apex:page controller="ObjectListCopytoController">
+    <apex:form >
+        <apex:actionFunction action="{!fillAttachmentWrapper}" name="fillAttachmentWrapper" />
+        <apex:actionFunction action="{!masterCheck}" name="actionFun"/>
+        <apex:actionFunction action="{!masterUncheck}" name="actionFunctionUnchecked"/>
+        
+        <!---------------------------------------------------Top header ----------------------------------------------------->
+        <apex:pageBlock title="Copy Attachment">
+            
+            <apex:pageBlockSection collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <h1>
+                        Object Select List
+                    </h1>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:selectList size="1" value="{!selectedObjectName}" onchange="fillAttachmentWrapper();">
+                        <apex:selectOptions value="{!Objects}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <!---------------------------------------------------Attachment Records----------------------------------------------------->
+        <apex:pageBlock rendered="{!showAttachmentTable}" >
+            <apex:pageBlockSection collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <h1>
+                        Attachment List
+                    </h1>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton rendered="{!copyToButton}" value="Copy To" action="{!showPopup}"  status="status" />
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockTable value="{!attachmentRecords}" var="attachmentRecord">
+                <apex:column headerValue="Serial No" value="{!attachmentRecord.sNo}" />
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:inputCheckbox value="{!masterCheckBox}" onchange="actionFun();"/>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!attachmentRecord.singleCheck}" onchange="actionFunctionUnchecked();"/>
+                </apex:column>
+                <apex:column headerValue="Name" value="{!attachmentRecord.name}" />
+                <apex:column headerValue="Content Type" value="{!attachmentRecord.contentType}" />
+                <apex:column headerValue="Body" >
+                    <img src="{!attachmentRecord.attachmentUrl}" height="20px" widht="20px"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock rendered="{!!showAttachmentTable}">
+            <apex:pageMessages />
+        </apex:pageBlock>
+    </apex:form>
+    <!------------------------------------------- POP UP----------------------------------------------------------->
+    <apex:form >
+        <apex:actionFunction action="{!fillObject}" name="fillObject"/>
+        <apex:pageBlock >
+            <apex:outputPanel id="popup">
+                <apex:outputPanel id="popInnerOutputPnl" styleClass="customPopup" layout="block" rendered="{!displayPopUp}">
+                    <!--apex:commandButton value="Ok" action="{!redirectPopup}" styleClass="closeButton" rerender="popup">
+                    </apex:commandButton-->
+                    <apex:commandButton value="X" title="Close the popup" action="{!closePopup}" styleClass="closeButton" rerender="popup">
+                    </apex:commandButton>
+                    <apex:pageblockSection >                         
+                        <apex:pageblockSectionItem >
+                            <apex:selectList size="1" value="{!selectedObjectNamePopup}" onchange="fillObject();">
+                                <apex:outputLabel value="Object List" />
+                                <apex:selectOptions value="{!ObjectOptions}"></apex:selectOptions>
+                            </apex:selectList>
+                        </apex:pageblockSectionItem>
+                        <apex:pageBlockSectionItem >
+                        </apex:pageBlockSectionItem>
+                    </apex:pageblockSection>
+     <!-------------------------------------------POPUP TABLE DATA-------------------------------------------------------------->
+                  <apex:actionFunction action="{!popupMasterCheckBox}" name="popupMasterCheck"/>
+                    <apex:actionFunction action="{!popupMasterUnCheckBox}" name="popupSingleCheck"/>
+                    <div style="overflow:auto;width:600px;height:250px">
+                        <apex:pageBlockTable value="{!objectWrapperRecords}" var="obj" rendered="{!showObjectTable}">
+                            <apex:column headerValue="Sno" value="{!obj.sNo}"/>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:inputCheckbox value="{!popupMasterCheckBox}" onchange="popupMasterCheck();" />
+                                </apex:facet>
+                                <apex:inputCheckbox value="{!obj.popupSingleCheck}" onchange="popupSingleCheck();" />
+                            </apex:column>
+                            <apex:column headerValue="Name" value="{!obj.Name}"/>
+                            <apex:column headerValue="Account Number" value="{!obj.accountNumber}"/>
+                        </apex:pageBlockTable>
+                    </div>
+                    <apex:pageBlockSection >
+                    <apex:commandButton rendered="{!copyAssignButton}" value="Copy Assign" action="{!copyAttachment}" />
+                        </apex:pageBlockSection>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <style type="text/css">
+        .customPopup {
+        background-color: white;
+        border-style: solid;
+        border-width: 2px;
+        left: 20%;
+        padding: 10px;
+        position: absolute;
+        z-index: 9999;
+        /* These are the 3 css properties you will need to tweak so the pop 
+        up displays in the center of the screen. First set the width. Then set 
+        margin-left to negative half of what the width is. You can also add 
+        the height property for a fixed size pop up.*/
+        width: 600px;
+        top: 20%;
+        }
+        
+        .disabledTextBox {
+        background-color: white;
+        border: 1px solid;
+        color: black;
+        cursor: default;
+        width: 90px;
+        display: table;
+        padding: 2px 1px;
+        text-align:right;
+        }   
+        
+        .closeButton {
+        float: right;
+        }
+    </style>
+</apex:page>

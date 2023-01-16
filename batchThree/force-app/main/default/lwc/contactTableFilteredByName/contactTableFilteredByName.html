@@ -1,0 +1,9 @@
+<template>
+    <lightning-combobox label="City Type" options={pickval} class="slds-m-around_medium" onchange={handleChange}>
+
+    </lightning-combobox>
+    <div style="height: 300px;">
+        <lightning-datatable key-field="id" data={contactRecords} columns={columns}>
+        </lightning-datatable>
+    </div>
+</template>

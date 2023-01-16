@@ -1,0 +1,13 @@
+<apex:page controller="SurpriseTest2UsingMap">
+    
+    <apex:form >
+      <apex:pageBlock >
+        <apex:pageBlockTable value="{!accountRecords}" var="acc">
+            <apex:column headerValue="Serial Number" value="{!acc.sNo}"/>
+              <apex:column headerValue="Account Name" value="{!acc.accName}"/>
+            <apex:column headerValue="Opportunity Name" value="{!acc.oppName}"/>
+            
+          </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

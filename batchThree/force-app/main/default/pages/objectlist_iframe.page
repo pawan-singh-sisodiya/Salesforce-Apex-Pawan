@@ -1,0 +1,23 @@
+<apex:page controller="ObjectList_Iframe">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:actionFunction action="{!fillObject}" name="fillObject"/>
+            <apex:pageBlockSection title="Model content" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:selectList size="1" value="{!selectedObjectName}" onchange="fillObject()">
+                        <apex:selectOptions value="{!options}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+                <!--------------------------------TABLE DATA-------------------------------------------->
+
+            <apex:pageBlockSection >
+            <apex:pageBlockTable value="{!objectWrapperRecords}" var="obj">
+                <apex:column value="{!obj.sNo}"/>
+                <apex:column value="{!obj.Name}"/>
+                <apex:column value="{!obj.accountNumber}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

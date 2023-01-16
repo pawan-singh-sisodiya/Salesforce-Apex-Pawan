@@ -1,0 +1,25 @@
+<apex:page controller="Demo3">
+    <apex:form >
+        <apex:actionFunction action="{!countryMethod}" name="abc"/>
+        
+        <apex:pageBlock >
+          
+                Country : 
+                <apex:selectList size="1" value="{!countryName}"  onchange="abc()">
+                    <apex:selectOptions value="{!countryList}"></apex:selectOptions>
+                </apex:selectList>
+                States : 
+             <apex:actionFunction action="{!stateMethod}" name="abcd"/>
+                <apex:selectList size="1" value="{!stateName}"  onchange="abcd()">
+                    <apex:selectOptions value="{!stateList}"></apex:selectOptions>
+                </apex:selectList>
+            
+             States : 
+             <!--apex:actionFunction action="{!stateMethod}" name="abcd"/-->
+                <apex:selectList size="1" value="{!cityName}">
+                    <apex:selectOptions value="{!cityList}"></apex:selectOptions>
+                </apex:selectList>
+         
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

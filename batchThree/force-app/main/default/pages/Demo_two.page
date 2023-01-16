@@ -1,0 +1,13 @@
+<apex:page >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:commandButton value="Add Media"/>
+            <iframe  id="theIframe" scrolling="true" name="theIframe" src="https://kumetrider3-dev-ed--c.visualforce.com/apex/copy_attachment_practice?core.apexpages.request.devconsole=1" width="500px" height="400px">
+            
+            </iframe>
+        </apex:pageBlock>
+        
+        
+        
+    </apex:form>
+</apex:page>

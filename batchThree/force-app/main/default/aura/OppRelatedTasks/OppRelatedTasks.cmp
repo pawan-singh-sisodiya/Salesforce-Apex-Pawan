@@ -1,0 +1,76 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="GetTaskRecsApex" >
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="recordId" Type="String"/>
+    <aura:attribute name="statusMap" Type="Map"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <div style="height: auto;">
+       
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+        aria-labelledby="element-with-table-label other-element-with-table-label">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Activity Date">Activity Date</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Subject">Subject</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Status">Status</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Action">Action</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration var="task" items="{!v.data}" indexVar="indx">
+
+                <tr class="slds-hint-parent">
+                    <td data-label="Due Date">
+                        <div class="slds-truncate" title="{!task.ActivityDate}">
+                            <lightning:input type="Date" value="{!task.ActivityDate}"></lightning:input>
+                        </div>
+                    </td>
+                    <td data-label="Subject">
+                        <div class="slds-truncate" title="{!task.Subjet}">
+                            <lightning:input value="{!task.Subject}"></lightning:input>
+                        </div>
+                    </td>
+                    <td data-label="Status">
+                                            <lightning:select aura:id="TaskPicklist" value="{!task.Status}" required="true">
+                                                <option value="">---None---</option>
+                                                <aura:iteration items="{!v.statusMap}" var="fieldValue" indexVar="key">
+                                                    <option text="{!fieldValue.value}" value="{!fieldValue.key}" selected="{!fieldValue.key==task.Status}"/>
+                                                </aura:iteration>
+                                            </lightning:select>
+                                        </td>
+                    
+                     <td>
+                            <a onclick="{!c.deleteRecord}" data-record="{!index}">
+                                <lightning:icon iconName="utility:delete" size="small" alternativeText="Delete"/>
+                                   <span class="slds-assistive-text">Remove</span>
+                            </a>
+                      </td>
+                    
+                  </tr>
+                </aura:iteration>
+            
+                
+               </tbody>
+              </table>
+             </div>
+       
+             <div class="slds-float_right slds-p-bottom_small">
+                <h1 class="slds-page-header__title"> 
+                    <lightning:buttonIcon iconName="utility:add"  size="large" variant="bare" alternativeText="Add" onclick="{!c.rowAddition}"/>
+                </h1>
+            </div>
+            <div class="slds-align_absolute-center slds-p-top_small">
+                <lightning:button variant="brand" label="Save" title="Brand action" onclick="{!c.save}" />
+            </div>
+    
+    
+    
+</aura:component>

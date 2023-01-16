@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="PRactice Account Contact Task">
+        <lightning-combobox label="Select Account Name" options={accountName} onchange={handleAccount}> 
+
+        </lightning-combobox>
+
+        <lightning-combobox label="Select Contact" options={contactName} onchange={contactHandler}></lightning-combobox><br/>
+
+        <lightning-datatable key-field="Id" data={taskRecords} columns={columns}>
+
+        </lightning-datatable>
+
+        <!-- <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>ActivityDate</th>
+                    <th>Status</th>
+                    <th>OwnerId</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={taskRecords} for:item="tsk"> 
+                    <tr key={tsk.Id}>
+                        <td>{tsk.Subject}</td>
+                        <td>{tsk.ActivityDate}</td>
+                        <td>{tsk.Status}</td>
+                        <td>{tsk.OwnerId}</td>
+                    </tr>
+
+                </template>
+
+            </tbody>
+        </table> -->
+    </lightning-card>
+    
+</template>

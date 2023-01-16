@@ -1,0 +1,14 @@
+<template>
+    <lightning-card>
+        <lightning-input type="checkbox" label="Show contact Count" onchange={handleCheckBox}></lightning-input>
+
+        <!-- <lightning-datatable key-field="Id" data={accountRecords} columns={columns}>
+        </lightning-datatable> -->
+
+
+        <div if:true={contactCount}>
+            <c-demo-child contact-records={contactCount}></c-demo-child>
+        </div>
+
+    </lightning-card>
+</template>

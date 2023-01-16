@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Student List">
+        <div if:true={students}>
+            <template for:each={students} for:item="stu">
+                <div key={stu.Id}>
+                    <div>
+                        <lightning-layout>
+                            <lightning-layout-item size="4">
+                                <lightning-icon style="float: right; padding-right: 10px;" icon-name="custom:custom1"
+                                    alternative-text="Approved" title="Approved">
+                                </lightning-icon>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <h2 style="float: left; padding-left: 10px;">{stu.Name} {stu.LastName__c}</h2>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="4">
+                                <lightning-button data-id={stu.Id} style="float: right;" variant="Success"
+                                    label="Show Details" onclick={showDetails}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <div class="slds-align_absolute-center">
+                            <h2><b>{stu.City__c}</b></h2>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </template>
+        </div>
+
+        <div if:false={students}>
+            <p style="color: red;">City not selected. Please select city.</p>
+        </div>
+
+
+        <c-student-details get-student-id={studentId} student-details={StudentDetailServe}></c-student-details>
+
+
+    </lightning-card>
+</template>

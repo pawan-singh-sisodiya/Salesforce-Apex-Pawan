@@ -1,0 +1,26 @@
+<apex:page controller="ContactAssignment4">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Contact">
+                <apex:pageBlockTable value="{!con}" var="contact" >
+                    <apex:column headerValue="Email" >
+                        <apex:inputField value="{!contact.email}"/>
+                    </apex:column>
+                    <apex:column headerValue="LastName">
+                        <apex:inputField value="{!contact.lastName}"/>
+                    </apex:column>
+                    <apex:column headerValue="BirthDay">
+                        <apex:inputField value="{!contact.Birthdate}"/>
+                    </apex:column>
+                    <apex:column headerValue="FirstName">
+                        <apex:inputField value="{!contact.firstName}"/>
+                    </apex:column> 
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+                <apex:commandButton value="save" action="{!save}"/>
+                </apex:pageBlockButtons>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

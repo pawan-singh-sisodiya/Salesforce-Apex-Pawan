@@ -1,0 +1,25 @@
+<template>
+
+    <template for:each={childRecords} for:item="child">
+        <div key={child.Id}>
+
+
+            <lightning-layout style="height: 250px; width: 600px;">
+                <lightning-layout-item size="6">
+                    <lightning-formatted-rich-text value={child.CountrySideImage__c}></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <h3>Name : {child.Name}</h3>
+                    <h3>Capital : {child.Capital__c}</h3>
+                    <h3>NamPresident : {child.President__c}</h3>
+                    <h3>Population : {child.Population__c}</h3>
+                </lightning-layout-item>
+            </lightning-layout>
+
+
+
+
+        </div>
+
+    </template>
+</template>

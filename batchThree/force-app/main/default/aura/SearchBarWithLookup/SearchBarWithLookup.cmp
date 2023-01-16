@@ -1,0 +1,17 @@
+<aura:component>
+    
+    <input type="text" class="slds-input slds-combobox__input" id="combobox-id-1" aria-autocomplete="list" aria-controls="listbox-id-1" aria-expanded="false" aria-haspopup="listbox" autoComplete="off" role="combobox" placeholder="Search..." />
+    <aura:attribute name="conRecords" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:select name="select1" label="Select an Account">
+        <option value="null">None</option>
+        <aura:iteration items="{!v.conRecords}" var="item">
+            <option value="{!item.Id}">{!item.Name}</option>
+            
+        </aura:iteration>
+        
+    </lightning:select> 
+    
+    
+    
+</aura:component>

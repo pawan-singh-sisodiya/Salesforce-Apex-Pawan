@@ -1,0 +1,31 @@
+<template>
+    <lightning-card>
+        <p>Total Users:- {totalsize}</p>
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-input placeholder="Search Text" onchange={handleChange} style="width: 300px;">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <div>
+                    <lightning-button label="Search" onclick={searchHandle}>
+                    </lightning-button>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <div class="slds-scrollable" style="height: 300px;">
+            <template if:true={profileRecords}>
+                <template for:each={profileRecords} for:item="user" for:index="index">
+                    <div key={user.Id}>
+                        <p><img style="width: 35px; height: 35px;" src={user.FullPhotoUrl}></p>
+                        <p>Name : {user.Name}</p>
+                        <p>ProfileId : {user.ProfileId}</p>
+                    </div>
+                </template>
+            </template>
+            <div if:false={profileRecords} class="slds-box slds-m-around_medium" style="color:red">You have no records
+                to show</div>
+        </div>
+    </lightning-card>
+</template>

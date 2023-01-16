@@ -1,0 +1,28 @@
+<apex:component access="global" controller="ClientRequirementController">
+    
+    
+    <apex:attribute name="myValue" description="This is the value for the component."
+                    type="String"  assignTo="{!taskId}"/>
+    <h4>
+        Hi {!task.Owner.Name},
+    </h4>
+    <p>
+        You have been assigned an {!task.type}  task by {!opp.Owner.Name} <br/>
+        This is for Tender Opportunity <a href="https://kumetrider3-dev-ed.lightning.force.com/lightning/r/Opportunity/{!opp.Id}/view">{!opp.Name}</a>. <br/> 
+        
+        Click Here to see the <a href="https://kumetrider3-dev-ed.lightning.force.com/lightning/r/Task/{!task.Id}/view">{!task.Subject}</a> task.<br/>
+        
+        This task must be completed by {!task.ActivityDate} to avoid delaying the submission process. <br/>
+        
+        PLEASE NOTE:- the whole submission will be delayed if approvals are delivered late.<br/>
+        
+        Publishing Account: <a href="https://kumetrider3-dev-ed.lightning.force.com/lightning/r/Account/{!opp.Account.Id}/view">{!opp.Account.Name}</a>.   <br/>
+        
+        IF THIS TASK SHOULD NOT BE ASSIGNED TO YOU PLEASE INFORM {!opp.owner.Name} IMMEDIATELY TO AVOID MISSING KEY DEADLINES    <br/>
+    </p>
+    
+    <h4>
+        <b>Thanks and regards</b><br/>
+        <b>{!task.CreatedBy.Name}</b>
+    </h4>
+</apex:component>

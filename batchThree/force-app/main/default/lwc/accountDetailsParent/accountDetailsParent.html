@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Account and Contacts" icon-name="standard:account">
+        <div slot="actions">
+            <lightning-button variant="brand" label="Create contact" onclick={handleContactBtn}>
+            </lightning-button>
+        </div>
+        <div if:true={showContact}>
+            <!--  Parent To Child @api public variable/property -->
+            <c-create-contcat-child account-id={recordId} onhidechild={handleHideChild}></c-create-contcat-child>
+        </div>
+        <div if:true={accountRecord} class="slds-box slds-m-around_medium">
+            <p class="slds-text-heading_small">{accountRecord.Name} Account Details</p>
+            <p>Phone : {accountRecord.Phone}</p>
+            <p>Type : {accountRecord.Type}</p>
+        </div>
+    </lightning-card>
+</template>

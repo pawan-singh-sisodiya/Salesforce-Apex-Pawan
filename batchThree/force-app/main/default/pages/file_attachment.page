@@ -1,0 +1,24 @@
+<apex:page controller="FileAttachmentController">
+    <apex:form id="frm">
+        <apex:pageBlock title="Number of Contacts">
+            <apex:pageBlockTable value="{!contactList}" var="contact">
+                <apex:column headerValue="sNo" value="{!contact.sNo}"/>
+                <apex:column headerValue="Name" value="{!contact.Name}"/>
+                <apex:column headerValue="Phone" value="{!contact.Phone}"/>
+                <apex:column headerValue="LeadSource" value="{!contact.LeadSource}"/>
+                <apex:column headerValue="Email" value="{!contact.Email}"/>
+                <apex:column headerValue="Attach Image"> 
+                    <img width="50" src="{!contact.attachmentURL}"/> 
+                </apex:column>
+                <apex:column headerValue="Upload">
+                    <apex:commandButton action="/apex/upload_file?recordId={!contact.Id}" value="Upload" rerender="frm"/>
+                </apex:column>
+                <apex:column headerValue="Delete">
+                    <apex:commandButton action="{!deleteimage}" value="Delete"  rerender="frm">
+                        <apex:param name="prm" value="{!contact.attId}" assignTo="{!recordDeleteId}"/>
+                    </apex:commandButton>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

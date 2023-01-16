@@ -1,0 +1,97 @@
+<apex:page controller="paginationSearch" lightningStylesheets="true">
+    <apex:form >
+        <apex:pageBlock id="pb">
+            <apex:actionFunction name="refreshPageSize" action="{!refreshPageSize}" status="fetchStatus" reRender="pb"/>
+            <apex:pageBlockSection id="pt">
+                <h1 style="font-size: 25px;">
+                    Contacts
+                </h1>
+            </apex:pageBlockSection> 
+            <apex:inputText style="width: 20%;" value="{!searchString}" maxlength="100" size="110" />&nbsp;
+            <apex:commandButton action="{!fillContactRecords}" value="Search" rerender="ContactBlock"/><br/><br/>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem > 
+                    <!-----------------------------------Account Select Type ----------------------------------->
+                    <apex:selectList value="{!selectedType}" size="1">
+                        <apex:outputLabel value="Select Type"></apex:outputLabel>
+                        <apex:selectOptions value="{!AccountTypeValue}" />
+                    </apex:selectList>
+                    <apex:commandButton action="{!copyStatusMethod}" value="Save" oncomplete="showToast();" reRender="pb" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <!-------------------------------------For Page Size --------------------------------------->
+                    <apex:selectList value="{!selectedPageSize}" size="1" onchange="refreshPageSize();">
+                        <apex:outputLabel value="Page Size"></apex:outputLabel>
+                        <apex:selectOptions value="{!PageSizeMethod}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+                    <!----------------------------------------Table--------------------------------------------->
+            <apex:pageBlockTable id="ContactBlock" value="{!contactRecords}" var="contacts">
+                <apex:column headerValue="Sno" value="{!contacts.serialNo}"/>
+                <apex:column headerValue="Action">
+                    <apex:inputCheckbox value="{!contacts.singleCheckBox}"/>
+                </apex:column>
+                <apex:column value="{!contacts.con.name}">
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!ViewData}" value="Name {!IF(sortExpression=='Name',IF(sortDirection='ASC','▼','▲'),'')}" >
+                            <apex:param value="Name" name="column" assignTo="{!sortExpression}" ></apex:param>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!contacts.con.Email}">
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!ViewData}" value="Email {!IF(sortExpression=='Email',IF(sortDirection='ASC','▼','▲'),'')}" >
+                            <apex:param value="Email" name="column" assignTo="{!sortExpression}" ></apex:param>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!contacts.con.account.Name}">
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!ViewData}" value="Account Name {!IF(sortExpression=='Account.Name',IF(sortDirection='ASC','▼','▲'),'')}" >
+                            <apex:param value="Account.Name" name="column" assignTo="{!sortExpression}" ></apex:param>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!contacts.con.phone}">
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!ViewData}" value="Phone {!IF(sortExpression=='Phone',IF(sortDirection='ASC','▼','▲'),'')}" >
+                            <apex:param value="Phone" name="column" assignTo="{!sortExpression}" ></apex:param>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column value="{!contacts.con.Type__c}">
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!ViewData}" value="Type {!IF(sortExpression=='Type__c',IF(sortDirection='ASC','▼','▲'),'')}" >
+                            <apex:param value="Type__c" name="column" assignTo="{!sortExpression}" ></apex:param>
+                        </apex:commandLink>
+                    </apex:facet>
+                </apex:column>
+                <apex:column headerValue="Details">
+                    <apex:image url="/resource/1665646977000/UserIcon" width="40"/>
+                </apex:column>
+            </apex:pageBlockTable>
+                    <!-----------------------------------------------Butttons------------------------------------------------------------------>
+            <apex:pageBlockButtons location="Bottom">
+                <apex:commandButton value="First" action="{!firstPage}"/>
+                <apex:commandButton value="Prev" action="{!prev}"/>
+                <apex:commandButton value="Next" action="{!next}"/>
+                <apex:commandButton value="Last" action="{!lastPage}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        
+        <script>
+        function showToast(){
+            console.log('enter a block');
+             var theVariable = '{!tostMassageShow}';
+            if(theVariable === 'true'){
+                sforce.one.showToast({
+                    "title": "Success!",
+                    "message": "Successfully Update.!",
+                    "type": "success"
+                });
+            }
+        }
+        </script>
+    </apex:form>
+</apex:page>

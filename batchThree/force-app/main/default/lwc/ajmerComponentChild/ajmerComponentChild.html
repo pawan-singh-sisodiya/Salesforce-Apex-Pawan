@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-input type="number" value={childPrice} label="Total Price" onchange={totalPriceHandler}
+                    style="width: 150px;">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-input type="number" value={childQty} label="Total Qty" onchange={totalQtyHandler}
+                    style="width: 150px;">
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+
+</template>

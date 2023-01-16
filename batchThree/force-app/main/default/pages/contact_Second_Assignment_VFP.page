@@ -1,0 +1,59 @@
+<apex:page standardController="Contact" recordSetVar="Contacts">
+    <apex:form >
+        
+        <apex:pageBlock title="PageBlock Table">
+            <apex:pageBlockTable value="{!Contacts}" var="con" rows="3">
+                <apex:facet name="name">PageBlock Table</apex:facet>
+                <apex:column headerValue="Name" value="{!con.name}"/>
+                <apex:column headerValue="Email">
+                    <apex:inputField value="{!con.email}"/>
+                </apex:column>
+                <apex:column headerValue="Phone" value="{!con.phone}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Data Table">
+            <apex:dataTable value="{!Contacts}" var="con" border="1" cellpadding="1">
+                <apex:facet name="Data Table">Contact Records</apex:facet>
+                <apex:column headerValue="Name" value="{!con.name}"/>
+                
+                <apex:column headerValue="Email" value="{!con.email}"/>
+                <apex:column headerValue="Phone" value="{!con.phone}"/>
+            </apex:dataTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+    
+    <apex:pageBlock title="Data List">
+        <apex:dataList value="{!Contacts}" var="con" type="dot">
+            <apex:outputField value="{!con.name}"/>
+        </apex:dataList>
+    </apex:pageBlock>
+    
+    <apex:pageBlock title="Repeat value">
+        <apex:repeat value="{!Contacts}" var="con">
+            <apex:outputField value="{!con.name}"/><br/>
+            <apex:outputField value="{!con.email}"/><br/>
+            <apex:outputField value="{!con.phone}"/>
+        </apex:repeat>
+    </apex:pageBlock>
+    
+    <apex:pageBlock title="HTML table">
+        <table>
+            <apex:repeat value="{!Contacts}" var="con">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+                <tr>
+                    <td>{!con.name}</td>
+                    <td>{!con.email}</td>
+                    <td>{!con.phone}</td>
+                </tr>
+            </apex:repeat>
+            
+        </table>
+    </apex:pageBlock>
+    
+</apex:page>

@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <template for:each={studentRec} for:item="stu">
+            <div key={stu.Id}>
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-formatted-rich-text value={stu.Image__c}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <h4>{stu.Name} {stu.LastName__c}</h4>
+                <h4>{stu.Email__c}</h4>
+                <h4>{stu.City__c}</h4>
+                <h4>{stu.Phone__c}</h4>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>
+    </lightning-card>
+    
+</template>

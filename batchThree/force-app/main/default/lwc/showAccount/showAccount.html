@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="Wire as a property" icon-name="standard:account">
+        <template for:each={account.data} for:item="acc" for:index="index">
+            <div key={acc.Id} class="slds-box slds-m-around_medium">
+                <p>Name : {acc.Name}</p>
+                <p>Type : {acc.Type}</p>
+            </div>
+        </template>
+    </lightning-card>
+
+    <lightning-card title="Wire as a function" icon-name="standard:account">
+        <template for:each={account.data} for:item="acc" for:index="index">
+            <div key={acc.Id} class="slds-box slds-m-around_medium">
+
+                <p>Name : {acc.Name}</p>
+                <p>Type : {acc.Type}</p>
+            </div>
+        </template>
+    </lightning-card>
+    <br />
+    <lightning-card title="Wire as a Type" icon-name="standard:account">
+        <lightning-combobox label="Select Type" options={accTypeDynamicPicklist} class="slds-m-around_medium"
+            onchange={handleTypeChange}>
+        </lightning-combobox>
+        <template for:each={accountsByTypeData} for:item="acc" for:index="index">
+            <div key={acc.Id} class="slds-box slds-m-around_medium">
+                <p>Index : {index}</p>
+                <p>Name : {acc.Name}</p>
+                <p>Type : {acc.Type}</p>
+            </div>
+        </template>
+    </lightning-card>
+
+    <br />
+
+    <lightning-card title="Imperative With Parameter">
+        <lightning-combobox lablel="Account Type" options={accountDataOption} class="slds-m-around_medium"
+            onchange={handleaccountChange}></lightning-combobox>
+    </lightning-card>
+
+    <lightning-card title="Related Contact Records">
+        <template for:each={contactListData} for:item="con">
+            <div key={con.Id} class="slds-m-around_medium">
+                <p>Name : {con.FirstName} {con.LastName}</p>
+                <p>Phone : {con.Phone}</p>
+            </div>
+        </template>
+        <div if:false={contactListData} class="slds-box slds-m-around_medium" style="color:red">Please Select an Account
+            Type</div>
+    </lightning-card>
+</template>

@@ -1,0 +1,32 @@
+<apex:page controller="ContactAssignment4">
+    <apex:form >
+        <apex:pageBlock >
+            
+            <apex:pageBlockTable value="{!con}" var="contact">
+                <apex:column headerValue="FirstName" value="{!contact.firstName}"/>
+                <apex:column headerValue="Email" >
+                    <apex:inputField value="{!contact.Email}"/>
+                </apex:column>
+                <apex:column headerValue="LastName">
+                    <apex:inputField value="{!contact.lastName}"/>
+                </apex:column>
+                <apex:column headerValue="Birthday" >
+                    <apex:inputField value="{!contact.Birthdate}"/>
+                </apex:column>
+              <apex:column headerValue="AccountId">
+                  <apex:inputField value="{!contact.AccountId}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Action">
+                <apex:commandLink action="/apex/contact_edit_a4?id={!contact.Id}" value="edit"/>
+                </apex:column>
+            </apex:pageBlockTable>
+
+            <apex:pageBlockButtons >
+            <apex:commandButton action="{!rowAdd}" value="new contact"/>
+                <apex:commandButton action="{!rowDelete}" value="delete" immediate="true" />
+                <apex:commandButton action="{!save}" value="save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,27 @@
+<template>
+    <lightning-card icon-name="standard:calculator">
+        <lightning-input label="Enter First value" onchange={firstValueMethod}></lightning-input>
+        <lightning-input label="Enter Second value" onchange={secondValueMethod}></lightning-input>
+        <lightning-layout>
+
+            <lightning-layout>
+                <lightning-button label="Add + " onclick={addition}></lightning-button>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-button label="Subrtact - " onclick={Subrtact}></lightning-button>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-button label="Multiply * " onclick={Multiply}></lightning-button>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-button label="Devide / " onclick={Devide}></lightning-button>
+            </lightning-layout>
+        </lightning-layout>
+
+
+        <p>Result : {result}</p>
+
+
+    </lightning-card>
+
+</template>

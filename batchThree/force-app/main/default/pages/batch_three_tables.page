@@ -1,0 +1,45 @@
+<apex:page standardController="Contact" recordSetVar="Contacts"> 
+    <!--------------------------------PAGE BLOCK TABLE----------------------------------->
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!Contacts}" var="con" rows="5">
+                <apex:column headerValue="Contact Name" value="{!con.Name}"/>
+                <apex:column headerValue="Contact E-Mail" value="{!con.Email}"/>
+                <apex:column headerValue="Parent Account" value="{!con.AccountId}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    <!--------------------------------DATA TABLE----------------------------------->
+    <apex:dataTable value="{!Contacts}" var="con">
+        <apex:column headerValue="Contact Name" value="{!con.Name}"/>
+        <apex:column headerValue="Contact E-Mail" value="{!con.Email}"/>
+        <apex:column headerValue="Parent Account" value="{!con.AccountId}"/>
+    </apex:dataTable>
+    <!--------------------------------DATA LIST----------------------------------->
+    <apex:form >
+        <apex:pageBlock >
+            <apex:dataList value="{!Contacts}" var="con" >
+                <apex:outputField value="{!con.Name}"/>
+                <apex:outputField value="{!con.Email}"/>
+                <apex:outputField value="{!con.AccountId}"/>
+            </apex:dataList>
+        </apex:pageBlock>
+    </apex:form>
+    <!-------------------------------- Repeat----------------------------------->
+    <apex:form >
+        <apex:pageBlock >
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+                <apex:repeat value="{!Contacts}" var="con">  
+                    <tr>
+                        <td>{!con.Name}</td>
+                        <td>{!con.Email}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

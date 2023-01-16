@@ -1,0 +1,14 @@
+<template>
+
+    <lightning-card>
+        <lightning-datatable key-field="Id" data={myObj} columns={columns} onrowselection={rowHandler}>
+
+        </lightning-datatable>
+
+        <div if:true={selectedRowdata}>
+            <c-practice-static-product-child rows={selectedRowdata}></c-practice-static-product-child>
+
+        </div>
+    </lightning-card>
+    
+</template>

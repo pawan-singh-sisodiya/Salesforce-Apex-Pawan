@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+        <lightning-combobox options={countryPickList} label="Select Country" onchange={handleChange}>
+        </lightning-combobox>
+    </lightning-card>
+
+    <div if:true={childServe}>
+        <c-practice-country-president-child get-country={childServe}></c-practice-country-president-child>
+    </div>
+
+</template>

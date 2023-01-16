@@ -1,0 +1,9 @@
+<apex:page controller="SerialNumber">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!accountList}" var="accountRecord">
+            <apex:column headerValue="Serial Number" value="{!accountRecord.sNo}"/>
+            <apex:column headerValue="Account Name" value="{!accountRecord.Name}"/>
+            <apex:column headerValue="Associated Contacts" value="{!accountRecord.contactCount}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,30 @@
+<template>
+
+    <lightning-card title="Account Accordion">
+        <div class="slds-scrollable_y" style="height: 300px;">
+            <lightning-accordion>
+                <template for:each={accountRecords} for:item="acc">
+                    <div key={acc.Id}>
+                        <lightning-accordion-section label={acc.Name}>
+                            <template if:true={acc.Contacts}>
+                                <template for:each={acc.Contacts} for:item="con">
+                                    <div key={con.Id}>
+                                        {con.Name}
+                                    </div>
+
+                                </template>
+
+                            </template>
+                            <!--p>{acc.Contacts.Name}</p-->
+                            <!--template for:each={accountRecordsSecond} for:item="con">
+                            <lightning-accordion-section label={con.Name}></lightning-accordion-section>
+                        </template-->
+
+                        </lightning-accordion-section>
+                    </div>
+                </template>
+            </lightning-accordion>
+        </div>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,26 @@
+<apex:page standardController="Student__c" recordSetVar="Students">
+    <apex:form >
+        <apex:sectionHeader title="Student" subtitle="Student Records"/>
+        <apex:pageBlock title="Records">
+            <apex:pageBlockTable value="{!Students}" var="st" rows="5">
+                <apex:column value="{!st.Student_Name__c}"/>
+                <apex:column value="{!st.Gender__c}"/>
+                <apex:column value="{!st.Phone_Number__c}"/>
+                <apex:column value="{!st.Email__c}"/>
+                <apex:column value="{!st.DOB__c}"/>
+                <apex:column headerValue="Action"> <apex:commandLink action="/apex/student_edit_a3?id={!st.id}" Value="edit"/><apex:commandLink action="/apex/student_view_a3?id={!st.id}" Value="/view(visualforce)"/> </apex:column>
+                <apex:column headerValue="Action"> <apex:commandLink action="/lightning/r/Student__c/{!st.id}/view" Value="view(standard)"/> </apex:column>
+                
+            </apex:pageBlockTable>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="/lightning/o/Student__c/new?count=1&nooverride=1&useRecordTypeCheck=1&navigationLocation=LIST_VIEW&uid=166315938270380937&backgroundContext=%2Flightning%2Fo%2FStudent__c%2Flist%3FfilterName%3D00B5g00000XsTlREAV" value="new student"/>
+                <apex:commandButton action="{!first}" value="first"/>
+                <apex:commandButton action="{!next}" value="next"/>
+                <apex:commandButton action="{!last}" value="last"/>
+                <apex:commandButton action="/lightning/o/Student__c/list?filterName=00B5g00000XsTlREAV" value="student tab"/>
+                
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

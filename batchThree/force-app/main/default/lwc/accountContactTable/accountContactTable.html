@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Accordian Account Contact" icon-name="standard:account">
+        <div class="slds-scrollable_y" style="height: 300px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Industry</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <lightning-accordion>
+                                <template for:each={accountRecords} for:item="acc">
+                                    <div key={acc.Id}>
+
+                                        <lightning-accordion-section label={acc.Name}>
+
+                                            <template if:true={acc.Contacts}>
+                                                <template for:each={acc.Contacts} for:item="con">
+                                                    <div key={con.Id}>
+                        <td>{con.FirstName}</td>
+        </div>
+</template>
+</template>
+</lightning-accordion-section>
+</div>
+</template>
+</lightning-accordion>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</lightning-card>
+</template>

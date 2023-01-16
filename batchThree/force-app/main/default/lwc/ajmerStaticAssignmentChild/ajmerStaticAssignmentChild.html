@@ -1,0 +1,13 @@
+<template>
+    
+    <lightning-card>
+        <lightning-datatable key-field="id" 
+        data={getSelectedData} columns={columns}>
+
+        </lightning-datatable>
+        <lightning-layout class="slds-box">
+            <b class="slds-col slds-size_11-of-12">Net payable Amount</b>
+            <b class="slds-col slds-size_11-of-12">{getTotalAmount}</b>
+        </lightning-layout>
+    </lightning-card>
+</template>

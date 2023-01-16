@@ -1,0 +1,16 @@
+<template>
+
+    <lightning-card>
+        <lightning-datatable
+        key-field="id"
+        data={containsWholeData}
+        columns={columns}
+        onrowselection={handleClick}>
+</lightning-datatable>
+
+<div if:true={selectedId}>
+    <c-ibirds-child selected-ids={selectedId}></c-ibirds-child>
+</div>
+
+    </lightning-card>
+</template>

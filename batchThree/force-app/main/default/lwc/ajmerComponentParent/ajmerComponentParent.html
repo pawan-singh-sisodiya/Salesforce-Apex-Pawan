@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+
+        <lightning-layout>
+            <lightning-layout-item>
+                <lightning-input type="number" label="Price" onchange={priceHandler} style="width: 150px;">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-input type="number" label="Qty" onchange={qtyHandler} style="width: 150px;">
+                </lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        <div if:true={showChild}>
+            <c-ajmer-component-child child-price={totalPrice} child-qty={totalQty}></c-ajmer-component-child>
+        </div>
+
+
+
+    </lightning-card>
+</template>

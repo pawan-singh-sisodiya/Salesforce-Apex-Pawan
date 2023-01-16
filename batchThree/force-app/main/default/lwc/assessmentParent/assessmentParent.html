@@ -1,0 +1,12 @@
+<template>
+    
+    <lightning-card title="Assessment">
+        <lightning-combobox label="Account Names" options={accountNames} onchange={accountHandler}>
+
+        </lightning-combobox><br/>
+
+        <div if:true={childServeRecords}>
+            <c-assessment-child get-contact-records={childServeRecords}></c-assessment-child>
+        </div>
+    </lightning-card>
+</template>

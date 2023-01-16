@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Calculator">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-p-left_medium">
+                <span>
+                    <lightning-input label=" first value" name="first" style="width: 100px;" onchange={handleEvent1}>
+                    </lightning-input>
+                </span>
+            </div>
+            <div class="slds-col">
+                <span>
+                    <lightning-combobox name="progress" label="Status" value={value} placeholder="Select Operator"
+                        options={comboBoxOptions} onchange={handleOperator} style="width: 100px;"></lightning-combobox>
+                </span>
+            </div>
+            <div class="slds-col">
+                <span>
+                    <lightning-input label="Second value" style="width: 100px;" onchange={handleEvent2}>
+                    </lightning-input>
+                </span>
+            </div>
+            <div class="slds-col">
+                <span>
+                    <lightning-button label=" = " onclick={calculateOperation}></lightning-button>
+                </span>
+            </div>
+            <div class="slds-col">
+                <span>
+                    <lightning-input label="Result" style="width: 100px;" read-only="true" value={result}>
+                    </lightning-input>
+                </span>
+            </div>
+        </div>
+    </lightning-card>
+
+</template>

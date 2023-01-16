@@ -1,0 +1,31 @@
+<apex:page standardController="Student__c" recordSetVar="Students">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!Students}" var="st">
+                <apex:column headerValue="Action">
+                       <apex:commandLink value="edit" action="https://kumetrider3-dev-ed--c.vf.force.com/apex/Pr_studentEdit?Id={!st.Id}"/>
+                </apex:column>
+                <apex:column headerValue="Action">
+                </apex:column>
+                <apex:column value="{!st.Student_Name__c}"/>
+                <apex:column value="{!st.Phone_Number__c}"/>
+                <apex:column value="{!st.Gender__c}"/>
+                <apex:column value="{!st.Email__c}"/>
+                <apex:column value="{!st.DOB__c}"/>
+                <apex:column value="{!st.Address__c}"/>
+                <apex:column headerValue="Action">
+                </apex:column>
+            </apex:pageBlockTable>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!Save}"/>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+                <apex:commandButton value="quickSave" action="{!quickSave}"/>
+                <apex:commandButton value="First" action="{!First}"/>
+                <apex:commandButton value="Next" action="{!Next}"/>
+                <apex:commandButton value="Last" action="{!Last}"/>
+                <apex:commandButton value="Save & New" action="{!'save & new'}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

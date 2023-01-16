@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <template for:each={getStudentRecords} for:item="stu">
+            <div key={stu.Id}>
+                <lightning-layout>
+                    <lightning-layout-item>
+                        <h4>{stu.Name}</h4>
+                        <h5>{stu.City__c}</h5>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <lightning-button data-id={stu.Id} label="Show Details" onclick={handleShowButton}></lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+
+        <c-practice-student-detail student-rec={details}></c-practice-student-detail>
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Layout of Parent Component">
+        <lightning-datatable key-field="Id"
+         data={myobj} 
+         columns={columns}
+         onrowselection={handleCheckBox}>
+        </lightning-datatable>
+
+        <div if:true={selectedCheckBox}> 
+            <c-ajmer-static-assignment-child get-total-amount={sumAmount} get-selected-data={selectedCheckBox}></c-ajmer-static-assignment-child>
+        </div>
+       
+    </lightning-card>
+</template>

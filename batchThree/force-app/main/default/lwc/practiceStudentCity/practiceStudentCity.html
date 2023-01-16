@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Student Records">
+        <lightning-combobox label="Select city of student"
+         options={studentCityPicklist} onchange={cityClicked}>
+
+        </lightning-combobox>
+
+        <c-practice-student-list get-student-records={studentsList}></c-practice-student-list>
+    </lightning-card>
+    
+</template>

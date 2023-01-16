@@ -1,0 +1,23 @@
+<apex:page controller="PracticeCountryStateCityController">
+    <apex:form >
+    <apex:pageBlock >
+        
+        <apex:actionFunction action="{!stateMethod}" name="stateFunc"/>
+         <apex:actionFunction action="{!cityMethod}" name="cityfunc"/>
+        
+        Country:
+        <apex:selectList size="1" value="{!selectedCountry}" onchange="stateFunc();">
+        <apex:selectOptions value="{!countryList}"></apex:selectOptions>
+        </apex:selectList>
+        
+        State:
+        <apex:selectList size="1" value="{!selectedState}" onchange="cityfunc();">
+        <apex:selectOptions value="{!stateList}"></apex:selectOptions>
+        </apex:selectList>
+        City:
+        <apex:selectList size="1" >
+        <apex:selectOptions value="{!cityList}"></apex:selectOptions>
+        </apex:selectList>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

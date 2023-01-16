@@ -1,0 +1,18 @@
+<apex:page controller="ContactPagination">
+    <apex:form >
+    	<apex:pageBlock id="pb" title="Contacts" >
+            
+            <!-- <apex:inputText style="width: 20%;" value="{!searchString}" maxlength="100" size="110" />&nbsp;
+            <apex:commandButton action="{!Contacts}" value="Search" rerender="ContactBlock"/><br/><br/> -->
+            
+            <apex:pageBlockTable value="{!Contacts}" var="c" id="pt">
+            	<apex:column value="{!c.Name}" />
+                <apex:column value="{!c.Phone}" />
+            </apex:pageBlockTable>
+            <apex:commandButton value="First" action="{!ssc.first}" disabled="{!!ssc.hasPrevious}" reRender="pt,pb" />
+            <apex:commandButton value="Previous" action="{!ssc.previous}" disabled="{!!ssc.hasPrevious}" reRender="pt,pb" />
+            <apex:commandButton value="Next" action="{!ssc.next}" disabled="{!!ssc.hasNext}" reRender="pt,pb" />
+            <apex:commandButton value="End" action="{!ssc.last}" disabled="{!!ssc.hasNext}" reRender="pt,pb" />
+        </apex:pageBlock>
+	</apex:form>
+</apex:page>

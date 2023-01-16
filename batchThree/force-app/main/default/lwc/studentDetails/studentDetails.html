@@ -1,0 +1,20 @@
+<template>
+    <div if:true={studentDetails}>
+        <template for:each={studentDetails} for:item="student">
+            <div key={student.Id}>
+               <lightning-layout>
+                <lightning-layout-item size="5">
+                    <lightning-formatted-rich-text class="slds-col" value={student.Image__c}>
+                    </lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="7">
+                    <h4><b>{student.Name} {student.LastName__c}</b></h4>
+                    <h4><b>{student.Name} {student.City__c}</b></h4>
+                    <h4><b>{student.Name} {student.Email__c}</b></h4>
+                    <h4><b>{student.Name} {student.Phone__c}</b></h4>
+                </lightning-layout-item>
+               </lightning-layout>               
+            </div>
+        </template>
+    </div>
+</template>

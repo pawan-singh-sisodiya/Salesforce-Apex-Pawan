@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+
+        <template for:each={countryRecords} for:item="con">
+            <div key={con.Id}>
+                <lightning-layout>
+                    <lightning-layout-item size="5">
+                        <lightning-formatted-rich-text value={con.CountrySideImage__c}></lightning-formatted-rich-text>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="7">
+                        <h4>Country : {con.Name}</h4>
+                        <h4>Country : {con.President__c}</h4>
+                        <h4>Country : {con.Population__c}</h4>
+                        <lightning-input type="checkBox" data-id={con.Id} onchange={handleClick}></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+    </lightning-card>
+    
+</template>
